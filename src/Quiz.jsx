@@ -50,17 +50,18 @@ const Quiz = () => {
 
 
   return (
-    <div className="container">
-        <h1>Programming Quiz</h1>
-        <hr />
+    <div className="bg-white w-2/5 mx-auto min-h-[20rem] h-auto mt-20 rounded-lg text-center font-sans">
+        <h1 className="text-3xl font-bold">Programming Quiz</h1>
+        <br />
+        <hr /><br />
         {!showResult ?     
         <>
-        <h2>{questions[currentQuestionIndex].question}?</h2>
-      <button className="button_array" onClick={(e) => checkAns(e,0)}>{questions[currentQuestionIndex].answer1}</button><br />
-      <button className="button_array" onClick={(e) => checkAns(e,1)}>{questions[currentQuestionIndex].answer2}</button><br />
-      <button className="button_array" onClick={(e) => checkAns(e,2)}>{questions[currentQuestionIndex].answer3}</button><br />
-      <button className="button_array" onClick={(e) => checkAns(e,3)}>{questions[currentQuestionIndex].answer4}</button>
-      <button className="button_array" onClick={nextQuestion} className="next">Next</button>
+        <h2 className="text-2xl font-bold">{questions[currentQuestionIndex].question}</h2>
+      <button className="button_array w-full h-10 border-2 border-gray-500 cursor-pointer text-left text-xl mb-5" onClick={(e) => checkAns(e,0)}>{questions[currentQuestionIndex].answer1}</button><br />
+      <button className="button_array w-full h-10 border-2 border-gray-500 cursor-pointer text-left text-xl mb-5" onClick={(e) => checkAns(e,1)}>{questions[currentQuestionIndex].answer2}</button><br />
+      <button className="button_array w-full h-10 border-2 border-gray-500 cursor-pointer text-left text-xl mb-5" onClick={(e) => checkAns(e,2)}>{questions[currentQuestionIndex].answer3}</button><br />
+      <button className="button_array w-full h-10 border-2 border-gray-500 cursor-pointer text-left text-xl mb-5" onClick={(e) => checkAns(e,3)}>{questions[currentQuestionIndex].answer4}</button>
+      <button className="button_array w-full h-10 border-2 border-gray-500 cursor-pointer text-left text-xl mb-5" onClick={nextQuestion} className="w-24 h-8 bg-blue-800 text-white border-none rounded text-lg text-center  hover:opacity-70">Next</button>
     
       <p>{currentQuestionIndex + 1} / {questions.length} questions</p>
       </>: <></>}
@@ -68,7 +69,7 @@ const Quiz = () => {
       {showResult ? 
       <>
         <h2>You scored {score} / {questions.length}</h2>
-        <button onClick={reset} className="next">Reset</button></>
+        <button onClick={reset} className="w-24 h-8 bg-blue-800 text-white border-none rounded text-lg text-center  hover:opacity-70">Reset</button></>
       
     
     : <></>}
