@@ -50,7 +50,7 @@ const Quiz = () => {
 
 
   return (
-    <div className="bg-white  mx-auto min-h-[20rem] h-auto mt-20 rounded-lg text-center font-sans w-full sm:w-auto md:w-3/5 lg:w-2/5">
+    <div className="bg-white  mx-auto min-h-[20rem] h-auto mt-20 rounded-lg text-center  font-sans w-full sm:w-auto md:w-3/5 lg:w-2/5">
         <h1 className="text-3xl font-bold">Programming Quiz</h1>
         <br />
         <hr /><br />
