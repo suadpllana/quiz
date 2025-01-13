@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from "react"
+import {useState, useEffect} from "react"
 
 
 const Quiz = ({category , title , setComponent, emoji}) => {
@@ -7,6 +7,22 @@ const Quiz = ({category , title , setComponent, emoji}) => {
      const [lock,setLock ] = useState(false)
      const [showResult , setShowResult] = useState(false)
      const [score , setScore] = useState(0)
+     const [seconds , setSeconds] = useState(100);
+
+     useEffect(() => {
+        const intervalId = setInterval(() => {
+            setSeconds((prev) => {
+                const newSeconds = prev - 1;
+                if (newSeconds === 0) {
+                    setShowResult(true);
+                }
+                return newSeconds;
+            });
+        }, 1000);
+    
+        return () => clearInterval(intervalId);
+    }, [seconds]); 
+    
  
  
      function nextQuestion(){
@@ -45,6 +61,7 @@ const Quiz = ({category , title , setComponent, emoji}) => {
          setLock(false)
          setShowResult(false)
          setScore(0)
+         setSeconds(100)
      }
     
  
@@ -52,6 +69,10 @@ const Quiz = ({category , title , setComponent, emoji}) => {
    return (
      <div className="bg-white  mx-auto min-h-[20rem] h-auto mt-20 rounded-lg text-center  font-sans w-full sm:w-auto md:w-3/5 lg:w-2/5">
          <h1 className="text-3xl font-bold">{emoji}{title} Quiz</h1>
+         {!showResult &&
+         <p>Time Remaining: {seconds}</p>
+         }
+         
          <br />
          <hr /><br />
          {!showResult ?     
